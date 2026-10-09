@@ -1,10 +1,12 @@
 # Claude Implementation Brief
 
+> **Scope correction (2026-10-09):** follow `CLAUDE.md` and `docs/PHASE-1-PARITY-MATRIX.md` first. The only currently authorized scope is Phase 1 — faithful reconstruction and evidence-backed compatibility fixes. Source extraction, production backend implementation and new product features below are future roadmap ideas, not active tasks or claims of completion.
+
 ## Mission
 
-Use this workspace as the starting point for a production-grade rebuild and upgrade of the Active Theory V6-style site.
+Use this workspace to finish a faithful reconstruction of the current Active Theory V6 experience before considering any upgrade work.
 
-The objective is **not** to blindly rewrite the experience. Preserve the visual language, spatial storytelling, shader quality, camera choreography, tactile interaction, and high-end creative direction while turning the captured artifact into maintainable production software and then adding carefully designed new capabilities.
+The objective is **not** to blindly rewrite the experience. Preserve the recovered visual language, spatial storytelling, shader quality, camera choreography and tactile interaction. Keep the original runtime as the implementation baseline while verifying real-browser behavior; do not replace recovered behavior with an inspired alternative.
 
 ## Source of truth hierarchy
 
@@ -36,9 +38,11 @@ All changes should be validated with:
 - no console/page errors on supported hardware
 - performance checks for startup, frame time, memory, GPU pressure, and asset decode
 
-## Product direction
+## Future product direction — deferred until Phase 1 is reviewed
 
-The rebuilt site should become a platform for:
+The following are roadmap ideas only. Do not implement them during the current task unless the current live V6 experience is verified to already provide the behavior and it is required for parity.
+
+A future rebuilt site could become a platform for:
 
 - immersive portfolio storytelling
 - richer project discovery

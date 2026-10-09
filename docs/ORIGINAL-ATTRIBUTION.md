@@ -1,6 +1,8 @@
-# activetheory.net — recovered source tree — file attribution
+# activetheory.net — recovered source corpus — file attribution
 
-Every file below was recovered from publicly accessible endpoints of the respective target during the authorized assessment. Each row lists: recovered path, size, sha256 prefix (full hashes in `verification/hashes.sha256`), the exact origin URL/object, the collection method, and the verification status.
+This is a corpus-level attribution inventory inherited from the wider forensic collection. The paths in the table are relative to that source corpus, not necessarily to this smaller reconstruction workspace; some historical experiment and legacy files listed here are not included in this repository. Check the actual workspace tree before assuming that a listed path is present here.
+
+Each row records a path in the source corpus, size, SHA-256 prefix (where available), origin URL/object, collection method, and verification status. The current reconstructed runtime is assembled under `app/public/`, with the selected immutable copies under `vendor/forensic/current-v6/` and `vendor/forensic/legacy-v5/`.
 
 | recovered path | size | sha256 | origin | method | verification |
 |---|---|---|---|---|---|
