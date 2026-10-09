@@ -7,15 +7,17 @@
 
 This file is the concise evidence ledger. See [PHASE-1-PARITY-MATRIX.md](./PHASE-1-PARITY-MATRIX.md) for the full checklist.
 
+**Loader regression investigation (2026-10-09):** the local runtime was missing three SDF font JSON files plus Draco and Basis JS/WASM dependencies used dynamically after bootstrap. These requests returned 404 and matched the observed loader stall. The original files were recovered from the public live site, added to the manifest and hash verifier, and the server now labels `.wasm` responses as `application/wasm`. After this change, the runtime advanced beyond the reported ~45% state to ~75% during a 35-second instrumented browser check; full supported-device visual parity remains open.
+
 ## Verified baseline
 
 - Live `https://activetheory.net/` root HTML matched local `app/public/index.html` by SHA-256 during the audit.
 - Selected core V6 resources fetched from the live site matched local bytes: main app bundle, module stub, Hydra worker, UIL data, compiled shader, unsupported page, a regular font, and representative home/logo geometry. Expected hashes are pinned in `scripts/verify.mjs`.
-- The manifest verifier passed in a recorded run: **379/379** manifest entries were present with expected sizes; all pinned core hashes passed.
+- The manifest verifier passes on `fix/loader-stall-45`: **386/386** manifest entries are present with expected sizes; all pinned core hashes, including seven restored runtime dependencies, pass.
 - The asset fetch report records **157 downloaded, 213 skipped/reused, 0 failed, and 0 declared-size mismatches**.
 - Captured live `metadata-dev.json`, `contact-dev.json`, and `projects-dev.json` were reported identical to their local captured copies. CMS snapshots contain **65 project records** and **161 media records** per environment snapshot.
 - The ZIP extraction smoke check found **440/440** archive paths with no missing/extra files or size mismatches. This was a path/size comparison, not a byte-for-byte content hash of every extracted file.
-- `npm run smoke` passed **19/19** checks in the latest recorded run. Coverage includes route/static serving, missing-resource status, traversal rejection, CMS snapshot serving, one allowlisted media fetch and cache/range behavior, the four-request local assistant flow, and a basic two-client WebSocket room join/state/disconnect flow.
+- `npm run smoke` passes **26/26** checks on `fix/loader-stall-45`. Coverage includes route/static serving, missing-resource status, traversal rejection, CMS snapshot serving, one allowlisted media fetch and cache/range behavior, the four-request local assistant flow, and a basic two-client WebSocket room join/state/disconnect flow.
 - The local integration bridge routes CMS requests to the captured same-origin CMS and the four original assistant request names to the local adapter without modifying the recovered main app bundle.
 - The server derives an allowlist of **764 unique public GCS media URLs** from captured CMS JSON and caches media on demand under ignored `.artifacts/media-cache/`.
 - A follow-up local HTTP check returned 200 for `/`, `/studio/`, `/work/dream-portal`, `/unsupported`, and `/cms/projects-dev.json`; the CMS endpoint returned 65 project records. An unknown API route returned 404.

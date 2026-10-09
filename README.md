@@ -62,8 +62,8 @@ The smoke suite includes an allowlisted public-media request. That check require
 
 ## Current capabilities and limitations
 
-- `npm run verify` has passed in a recorded run: 379/379 manifest entries and the selected live-pinned hashes passed.
-- `npm run smoke` has passed in a recorded run: 19/19 checks, including the basic two-client realtime room flow.
+- `npm run verify` passes on this branch: 386/386 manifest entries and all selected live-pinned hashes passed.
+- `npm run smoke` passes on this branch: 26/26 checks, including seven recovered runtime dependencies, the basic assistant flow, and the two-client realtime room flow.
 - The CMS snapshots contain 65 projects and 161 media records per environment snapshot. The runtime's public media references are proxied through a CMS-derived allowlist and fetched/cached on demand.
 - The local assistant reproduces the observed four-request shape but uses deterministic project matching. It is not the original private model/service. A separate 65-project probe found one unresolved `E.C.H.O.` → `echo` slug mismatch.
 - The local WebSocket server covers several core room operations. Full original protocol parity, WebRTC behavior, reconnect/failure cases, and browser-driven interactions remain unverified.
@@ -80,4 +80,4 @@ The smoke suite includes an allowlisted public-media request. That check require
 
 ## Git/repository note
 
-The supplied workspace initially had no Git metadata. The repository `itssourov13/active-theory` was empty when checked on 2026-10-09. The initial local repository commit is intended to capture the recovered workspace plus documentation; it must be pushed manually by the owner. No remote push is part of this task.
+The recovered workspace and Phase 1 docs were committed locally and then pushed to `origin/main` by the repository owner. The loader-stall investigation is isolated on `fix/loader-stall-45` and remains a local working tree; this fix has not been committed or pushed.

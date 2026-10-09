@@ -40,6 +40,7 @@ const mime = {
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.otf': 'font/otf',
+  '.wasm': 'application/wasm',
   '.bin': 'application/octet-stream',
   '.vs': 'text/plain; charset=utf-8',
   '.ktx2': 'image/ktx2',

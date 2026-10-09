@@ -28,7 +28,7 @@ This package includes the recovered live runtime and asset set, not only a visua
 
 The assembled baseline currently verifies:
 
-- 379/379 manifest-tracked runtime assets present
+- 386/386 manifest-tracked runtime assets present
 - 157 live assets reconstructed
 - 213 existing assets reused
 - 0 failed downloads

@@ -16,7 +16,7 @@ This matrix is the current decision checklist. Use these status meanings:
 | Area | Current evidence | Status |
 |---|---|---|
 | Original V6 HTML and selected core runtime assets | Selected files fetched from live and matched local SHA-256; pins are in `scripts/verify.mjs` | Verified for listed files |
-| Manifest-tracked assets | Recorded `npm run verify`: 379/379 present; zero reported download failures and declared-size mismatches | Verified for manifest scope |
+| Manifest-tracked assets | Current branch `npm run verify`: 386/386 present; zero reported download failures and declared-size mismatches; seven dynamic runtime dependencies additionally hash-pinned | Verified for manifest scope |
 | Entire forensic ZIP extraction | 440/440 archive paths, no path or size mismatches; every file was not independently hash-compared | Partial |
 | Public CMS capture | 65 projects and 161 media records per environment snapshot; selected live JSON comparisons matched | Verified for capture/selected comparisons |
 | Local HTTP serving | Root, representative application routes, unsupported page and known assets returned expected responses in recorded checks | Verified for those routes only |
@@ -37,9 +37,9 @@ The recovered `app/public/` runtime and `vendor/forensic/*` references remain th
 
 Recorded verification results:
 
-- `npm run verify`: **PASS**, 379/379 manifest entries, pinned core hashes passed.
+- `npm run verify`: **PASS**, 386/386 manifest entries, pinned core hashes passed.
 - Asset fetch report: **157 downloaded, 213 skipped/reused, 0 failed, 0 declared-size mismatches**.
-- `npm run smoke`: **PASS**, 19/19 checks in the latest recorded run.
+- `npm run smoke`: **PASS**, 26/26 checks on `fix/loader-stall-45`.
 - Selected live CMS objects (`metadata-dev.json`, `contact-dev.json`, `projects-dev.json`) matched captured files in the audit.
 - The ZIP extraction test compared relative paths and sizes for 440 files; it was not a per-file hash proof for the entire archive.
 
@@ -55,7 +55,7 @@ These results establish a strong recovered/static baseline, not the rendering qu
 
 ### 3.2 WebGL rendering and motion
 
-**Open — highest priority.** Headless Chromium did not expose WebGL 2; WebGL 1 under SwiftShader was insufficient, and the page followed its unsupported-browser path. This is a limitation of the test environment and is not proof that the live site is down. It also means the local 3D scene has not been visually validated here.
+**Open — highest priority.** The test harness can create WebGL 2 through SwiftShader, but normal runtime startup follows its GPU-blocklist/unsupported path. With an external test-only GPU eligibility override and after restoring seven missing runtime dependencies, the loader moved from the reported ~45% to ~75% at a 35-second checkpoint without same-origin HTTP errors. That is evidence the missing resources were a real defect, not proof of final scene completion; the full 3D experience still requires a complete run and supported hardware-accelerated browser/device walkthrough.
 
 Required evidence: supported hardware-accelerated WebGL 2 browser/device; initial scene capture; geometry, shaders, particles, lighting/materials; camera paths; scroll/touch transitions; resize/orientation; desktop and mobile checkpoints; console and network logs. Compare equivalent states to the current live website and record visible differences.
 
@@ -69,7 +69,7 @@ Required evidence: supported hardware-accelerated WebGL 2 browser/device; initia
 
 **Implemented/approximation:** a local bridge maps the four observed request names (`createThread`, `createMessage`, `createRun`, `listMessage`) to a local deterministic catalog-matching adapter. The recorded smoke test proves the basic Dream Portal request flow and invalid-thread/wrong-method handling.
 
-**Known issue:** a separate probe sent prompts for all 65 captured projects and found one mismatch: the `E.C.H.O.` prompt expected slug `echo`, but returned an empty slug. This probe is separate from `npm run smoke`, so the 19/19 smoke result does not close this issue.
+**Known issue:** a separate probe sent prompts for all 65 captured projects and found one mismatch: the `E.C.H.O.` prompt expected slug `echo`, but returned an empty slug. This probe is separate from `npm run smoke`, so the 26/26 smoke result does not close this issue.
 
 **Not equivalent to the original:** private model, prompt, conversation storage and original response semantics are unavailable. The local adapter must be described as deterministic compatibility behavior, not a recovered original AI backend.
 

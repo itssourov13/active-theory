@@ -17,6 +17,10 @@
       "expected_bytes": null
     },
     {
+      "path": "assets/fonts/NBArchitektStd-Bold.json",
+      "expected_bytes": 13332
+    },
+    {
       "path": "assets/fonts/NBArchitektStd-Light-export/NBArchitektStd-Light.otf",
       "expected_bytes": null
     },
@@ -29,6 +33,10 @@
       "expected_bytes": null
     },
     {
+      "path": "assets/fonts/NBArchitektStd-Light.json",
+      "expected_bytes": 13338
+    },
+    {
       "path": "assets/fonts/NBArchitektStd-Regular-export/NBArchitektStd-Regular.otf",
       "expected_bytes": null
     },
@@ -39,6 +47,10 @@
     {
       "path": "assets/fonts/NBArchitektStd-Regular-export/NBArchitektStd-Regular.woff2",
       "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Regular.json",
+      "expected_bytes": 13350
     },
     {
       "path": "assets/geometry/hexgrid/hexagon.bin",
@@ -1449,6 +1461,22 @@
       "expected_bytes": null
     },
     {
+      "path": "assets/js/lib/_draco/draco_decoder.wasm",
+      "expected_bytes": 283091
+    },
+    {
+      "path": "assets/js/lib/_draco/draco_wasm_wrapper.js",
+      "expected_bytes": 58916
+    },
+    {
+      "path": "assets/js/lib/basis_transcoder.js",
+      "expected_bytes": 62504
+    },
+    {
+      "path": "assets/js/lib/basis_transcoder.wasm",
+      "expected_bytes": 474559
+    },
+    {
       "path": "assets/meta/android-chrome-192x192.png",
       "expected_bytes": null
     },
@@ -1520,5 +1548,14 @@
       "path": "unsupported.html",
       "expected_bytes": 1834
     }
+  ],
+  "recovered_runtime_dependencies": [
+    "assets/fonts/NBArchitektStd-Bold.json",
+    "assets/fonts/NBArchitektStd-Light.json",
+    "assets/fonts/NBArchitektStd-Regular.json",
+    "assets/js/lib/_draco/draco_decoder.wasm",
+    "assets/js/lib/_draco/draco_wasm_wrapper.js",
+    "assets/js/lib/basis_transcoder.js",
+    "assets/js/lib/basis_transcoder.wasm"
   ]
 }
