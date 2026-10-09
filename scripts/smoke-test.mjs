@@ -20,7 +20,9 @@ const checks = [
   { path: '/', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
   { path: '/', status: 200, includes: '<script src="/phase1-local-bridge.js"></script>' },
   { path: '/studio/', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
-  { path: '/work/dream-portal', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
+  // /work/<known-slug> receives live-matching SSR meta: title = "{name} · Active Theory".
+  { path: '/work/dream-portal', status: 200, includes: '<title>Dream Portal · Active Theory</title>' },
+  { path: '/work/not-a-real-project', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
   { path: '/unsupported', status: 200, includes: 'Your browser is not supported' },
   { path: '/phase1-local-bridge.js', status: 200, includes: 'phase1Fetch' },
   { path: '/assets/js/app.1780406240914.js', status: 200, includes: 'function RNG' },

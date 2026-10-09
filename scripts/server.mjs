@@ -10,6 +10,8 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 const publicRoot = path.join(projectRoot, 'app/public');
 const cmsRoot = path.join(projectRoot, 'app/cms-reference');
 const mediaCacheRoot = path.join(projectRoot, '.artifacts/media-cache');
+const mediaStoreRoot = path.join(projectRoot, 'app/media-store');
+const mediaStoreManifestPath = path.join(projectRoot, '.artifacts/media-store-manifest.json');
 const host = '127.0.0.1';
 const port = Number(process.env.PORT || 4173);
 const cmsKinds = new Set(['about', 'contact', 'media', 'metadata', 'projects']);
@@ -17,7 +19,9 @@ const cmsVersions = new Set(['production', 'staging', 'dev', 'latest']);
 const gcsOrigin = 'https://storage.googleapis.com';
 const gcsMediaPrefix = gcsOrigin + '/activetheory-v6.appspot.com/media/';
 const mediaByHash = new Map();
+const mediaLocalByHash = new Map();
 const assistantThreads = new Map();
+const projectMetaBySlug = new Map();
 
 const mime = {
   '.html': 'text/html; charset=utf-8',
@@ -65,6 +69,30 @@ function indexMediaUrls(value) {
   }
 }
 
+function buildMediaLocalStore() {
+  if (!fs.existsSync(mediaStoreManifestPath)) {
+    console.warn('Media store manifest not found; media will be proxied from upstream on demand');
+    return;
+  }
+  try {
+    const manifest = JSON.parse(fs.readFileSync(mediaStoreManifestPath, 'utf8'));
+    let loaded = 0;
+    for (const entry of manifest.entries || []) {
+      if (!mediaByHash.has(sha256(entry.url))) continue; // only URLs the CMS allowlist actually uses
+      const localFile = path.join(mediaStoreRoot, entry.path);
+      if (!fs.existsSync(localFile)) {
+        console.warn('Media store entry missing on disk: ' + entry.path);
+        continue;
+      }
+      mediaLocalByHash.set(sha256(entry.url), localFile);
+      loaded += 1;
+    }
+    console.log('Local media store loaded: ' + loaded + '/' + (manifest.entries || []).length + ' objects recoverable offline');
+  } catch (error) {
+    console.warn('Media store manifest unreadable: ' + error.message);
+  }
+}
+
 function buildMediaAllowlist() {
   for (const entry of fs.readdirSync(cmsRoot)) {
     if (!entry.endsWith('.json')) continue;
@@ -74,6 +102,75 @@ function buildMediaAllowlist() {
       console.warn('Skipping unreadable CMS snapshot ' + entry + ': ' + error.message);
     }
   }
+}
+
+function buildProjectMetaIndex() {
+  // Live SSR reads the production CMS bucket; the recovered dev snapshot is
+  // field-identical for slug/name/description/video.thumbnail (verified), so
+  // either snapshot reproduces the live <head> byte-for-byte.
+  const candidates = ['projects-production.json', 'projects-dev.json', 'projects-staging.json'];
+  for (const filename of candidates) {
+    const file = path.join(cmsRoot, filename);
+    if (!fs.existsSync(file)) continue;
+    try {
+      const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+      const projects = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.projects) ? parsed.projects : []);
+      for (const project of projects) {
+        if (project && typeof project.slug === 'string' && project.slug) {
+          projectMetaBySlug.set(project.slug, project);
+        }
+      }
+      if (projectMetaBySlug.size > 0) {
+        console.log('SSR project meta index loaded: ' + projectMetaBySlug.size + ' slugs from ' + filename);
+        return;
+      }
+    } catch (error) {
+      console.warn('Skipping unreadable CMS snapshot ' + filename + ': ' + error.message);
+    }
+  }
+  console.warn('SSR project meta index unavailable; /work/<slug> pages will serve base meta');
+}
+
+// Reproduces the live SSR <head> rules for /work/<slug> deep links:
+//   title       = "{name} · Active Theory"
+//   description = full project description (no truncation)
+//   canonical / og:url / twitter:url = https://activetheory.net/work/{slug}
+//   og:image / twitter:image = encodeURI(image.sizes.i1024px.url when the project
+//     has an image upload, else video.thumbnail) (spaces -> %20, parens kept)
+// Unknown slugs fall through to the base document, matching live.
+function applyProjectMeta(html, slug) {
+  const project = projectMetaBySlug.get(slug);
+  if (!project) return html;
+  const canonical = 'https://activetheory.net/work/' + slug;
+  const title = (typeof project.name === 'string' ? project.name : '') + ' · Active Theory';
+  const description = typeof project.description === 'string' ? project.description : '';
+  const imageSizes = project.image && typeof project.image === 'object' ? project.image.sizes : null;
+  const image1024 = imageSizes && imageSizes.i1024px && typeof imageSizes.i1024px.url === 'string'
+    ? imageSizes.i1024px.url
+    : '';
+  const thumbnail = image1024 || (project.video && typeof project.video.thumbnail === 'string' ? project.video.thumbnail : '');
+  const ogImage = encodeURI(thumbnail);
+  const replacements = [
+    [/<link href="[^"]*" rel="canonical">/, '<link href="' + canonical + '" rel="canonical">'],
+    [/<title>[^<]*<\/title>/, '<title>' + title + '</title>'],
+    [/<meta name="description" content="[^"]*">/, '<meta name="description" content="' + description + '">'],
+    [/<meta property="og:url" content="[^"]*">/, '<meta property="og:url" content="' + canonical + '">'],
+    [/<meta property="og:title" content="[^"]*">/, '<meta property="og:title" content="' + title + '">'],
+    [/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="' + description + '">'],
+    [/<meta property="og:image" content="[^"]*">/, '<meta property="og:image" content="' + ogImage + '">'],
+    [/<meta property="twitter:url" content="[^"]*">/, '<meta property="twitter:url" content="' + canonical + '">'],
+    [/<meta property="twitter:title" content="[^"]*">/, '<meta property="twitter:title" content="' + title + '">'],
+    [/<meta property="twitter:description" content="[^"]*">/, '<meta property="twitter:description" content="' + description + '">'],
+    [/<meta property="twitter:image" content="[^"]*">/, '<meta property="twitter:image" content="' + ogImage + '">']
+  ];
+  let out = html;
+  for (const [pattern, replacement] of replacements) {
+    // Base document must match structurally; on any mismatch serve base unchanged.
+    if (!pattern.test(out)) return html;
+    // Replacer function avoids $-pattern interpretation in project text.
+    out = out.replace(pattern, () => replacement);
+  }
+  return out;
 }
 
 function rewriteCmsMedia(value) {
@@ -191,7 +288,7 @@ async function waitForDrain(writable) {
   await once(writable, 'drain');
 }
 
-async function serveCachedMedia(req, res, url, cacheFile) {
+async function serveCachedMedia(req, res, url, cacheFile, cacheHeader = 'HIT') {
   const stat = await fs.promises.stat(cacheFile);
   const range = parseRange(req.headers.range, stat.size);
   if (range && range.invalid) {
@@ -207,7 +304,7 @@ async function serveCachedMedia(req, res, url, cacheFile) {
     'Cache-Control': 'public, max-age=31536000, immutable',
     'Content-Length': range ? range.end - range.start + 1 : stat.size,
     'X-Content-Type-Options': 'nosniff',
-    'X-Asset-Cache': 'HIT'
+    'X-Asset-Cache': cacheHeader
   };
   if (range) headers['Content-Range'] = 'bytes ' + range.start + '-' + range.end + '/' + stat.size;
   res.writeHead(range ? 206 : 200, headers);
@@ -311,6 +408,16 @@ async function handleMedia(req, res, requestPath) {
     if (stat.isFile()) return await serveCachedMedia(req, res, url, cacheFile);
   } catch (error) {
     if (error.code !== 'ENOENT') console.warn('Media-cache stat error: ' + error.message);
+  }
+  // Recovered local media store first: the harvested bucket objects make these
+  // responses byte-identical to upstream without any network dependency.
+  const localFile = mediaLocalByHash.get(hash);
+  if (localFile) {
+    try {
+      return await serveCachedMedia(req, res, url, localFile, 'LOCAL-STORE');
+    } catch (error) {
+      console.warn('Local media store read error: ' + error.message);
+    }
   }
   try {
     return await serveRemoteMedia(req, res, url, cacheFile);
@@ -465,9 +572,16 @@ async function handleAssistant(req, res, requestPath) {
   return sendJson(res, 404, { error: 'Unknown assistant action' });
 }
 
-function serveHtmlWithBridge(file, res, req) {
+function serveHtmlWithBridge(file, res, req, htmlTransform = null) {
   fs.readFile(file, 'utf8', (error, html) => {
     if (error) return sendText(res, 500, 'Unable to read site entry');
+    if (htmlTransform) {
+      try {
+        html = htmlTransform(html);
+      } catch (error) {
+        console.warn('HTML transform failed, serving base document: ' + error.message);
+      }
+    }
     const marker = '<script>!function(){window._ENV_=';
     if (!html.includes(marker)) return sendText(res, 500, 'Live HTML bootstrap marker was not found');
     const bridge = '<script src="/phase1-local-bridge.js"></script>\n    ';
@@ -484,6 +598,8 @@ function serveHtmlWithBridge(file, res, req) {
 }
 
 buildMediaAllowlist();
+buildMediaLocalStore();
+buildProjectMetaIndex();
 
 const server = http.createServer(async (req, res) => {
   let requestPath;
@@ -515,7 +631,9 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     if (isMissingStaticPath(requestPath)) return sendText(res, 404, 'Not Found');
-    return serveHtmlWithBridge(path.join(publicRoot, 'index.html'), res, req);
+    const workMatch = /^\/work\/([^/]+)\/?$/.exec(requestPath);
+    const htmlTransform = workMatch ? (html) => applyProjectMeta(html, workMatch[1]) : null;
+    return serveHtmlWithBridge(path.join(publicRoot, 'index.html'), res, req, htmlTransform);
   });
 });
 

@@ -7,3 +7,4 @@ npm-debug.log*
 coverage/
 .artifacts/media-cache/
 *.log
+app/media-store/
