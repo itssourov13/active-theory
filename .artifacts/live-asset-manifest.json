@@ -1,0 +1,1524 @@
+{
+  "source": "https://activetheory.net/",
+  "cache_id": "1780406240914",
+  "generated_inventory_count": 351,
+  "generated_inventory_bytes": 183847900,
+  "entries": [
+    {
+      "path": "assets/fonts/NBArchitektStd-Bold-export/NBArchitektStd-Bold.otf",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Bold-export/NBArchitektStd-Bold.woff",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Bold-export/NBArchitektStd-Bold.woff2",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Light-export/NBArchitektStd-Light.otf",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Light-export/NBArchitektStd-Light.woff",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Light-export/NBArchitektStd-Light.woff2",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Regular-export/NBArchitektStd-Regular.otf",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Regular-export/NBArchitektStd-Regular.woff",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/fonts/NBArchitektStd-Regular-export/NBArchitektStd-Regular.woff2",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon.bin",
+      "expected_bytes": 617
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon.json",
+      "expected_bytes": 12997
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_bottomhalf.bin",
+      "expected_bytes": 541
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_bottomhalf.json",
+      "expected_bytes": 10080
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_full.bin",
+      "expected_bytes": 623
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_full.json",
+      "expected_bytes": 13125
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_gem.bin",
+      "expected_bytes": 501
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_gem.json",
+      "expected_bytes": 10116
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_lefthalf.bin",
+      "expected_bytes": 514
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_lefthalf.json",
+      "expected_bytes": 8106
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_nobevel_hard.bin",
+      "expected_bytes": 409
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_nobevel_hard.json",
+      "expected_bytes": 5472
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_nobevel_med.bin",
+      "expected_bytes": 409
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_nobevel_med.json",
+      "expected_bytes": 5671
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_nobevel_soft.bin",
+      "expected_bytes": 415
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_nobevel_soft.json",
+      "expected_bytes": 6643
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_righthalf.bin",
+      "expected_bytes": 536
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_righthalf.json",
+      "expected_bytes": 8118
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_tophalf.bin",
+      "expected_bytes": 590
+    },
+    {
+      "path": "assets/geometry/hexgrid/hexagon_tophalf.json",
+      "expected_bytes": 10028
+    },
+    {
+      "path": "assets/geometry/home/jellyfish.bin",
+      "expected_bytes": 24517
+    },
+    {
+      "path": "assets/geometry/home/jellyfish.json",
+      "expected_bytes": 1774016
+    },
+    {
+      "path": "assets/geometry/home/logo.json",
+      "expected_bytes": 147442
+    },
+    {
+      "path": "assets/geometry/jellyfish/bulb3.json",
+      "expected_bytes": 7081
+    },
+    {
+      "path": "assets/geometry/logo/AT_logo.bin",
+      "expected_bytes": 15200
+    },
+    {
+      "path": "assets/geometry/logo/AT_logo.json",
+      "expected_bytes": 1669699
+    },
+    {
+      "path": "assets/geometry/logo/AT_logo2.bin",
+      "expected_bytes": 11676
+    },
+    {
+      "path": "assets/geometry/logo_animation/A_logo_base.bin",
+      "expected_bytes": 7579
+    },
+    {
+      "path": "assets/geometry/logo_animation/A_logo_base.json",
+      "expected_bytes": 576458
+    },
+    {
+      "path": "assets/geometry/logo_animation/A_logoanimation_N.json",
+      "expected_bytes": 3860753
+    },
+    {
+      "path": "assets/geometry/logo_animation/A_logoanimation_P.json",
+      "expected_bytes": 3874374
+    },
+    {
+      "path": "assets/geometry/logo_animation/A_logorest.json",
+      "expected_bytes": 181383
+    },
+    {
+      "path": "assets/geometry/logo_animation/ring_logo_base.bin",
+      "expected_bytes": 6504
+    },
+    {
+      "path": "assets/geometry/logo_animation/ring_logo_base.json",
+      "expected_bytes": 533092
+    },
+    {
+      "path": "assets/geometry/logo_animation/ring_logoanimation_N.json",
+      "expected_bytes": 2851800
+    },
+    {
+      "path": "assets/geometry/logo_animation/ring_logoanimation_P.json",
+      "expected_bytes": 2822277
+    },
+    {
+      "path": "assets/geometry/logo_animation/ring_logorest.json",
+      "expected_bytes": 131395
+    },
+    {
+      "path": "assets/geometry/panels/2x1.bin",
+      "expected_bytes": 500
+    },
+    {
+      "path": "assets/geometry/panels/2x1.json",
+      "expected_bytes": 10344
+    },
+    {
+      "path": "assets/geometry/panels/2x2.bin",
+      "expected_bytes": 470
+    },
+    {
+      "path": "assets/geometry/panels/2x2.json",
+      "expected_bytes": 10529
+    },
+    {
+      "path": "assets/geometry/panels/2x3.bin",
+      "expected_bytes": 484
+    },
+    {
+      "path": "assets/geometry/panels/2x3.json",
+      "expected_bytes": 10517
+    },
+    {
+      "path": "assets/geometry/panels/2x4.bin",
+      "expected_bytes": 481
+    },
+    {
+      "path": "assets/geometry/panels/2x4.json",
+      "expected_bytes": 10290
+    },
+    {
+      "path": "assets/geometry/panels/3x1.bin",
+      "expected_bytes": 493
+    },
+    {
+      "path": "assets/geometry/panels/3x1.json",
+      "expected_bytes": 10319
+    },
+    {
+      "path": "assets/geometry/panels/3x4.bin",
+      "expected_bytes": 481
+    },
+    {
+      "path": "assets/geometry/panels/3x4.json",
+      "expected_bytes": 10632
+    },
+    {
+      "path": "assets/geometry/panels/5x2.bin",
+      "expected_bytes": 485
+    },
+    {
+      "path": "assets/geometry/panels/5x2.json",
+      "expected_bytes": 10587
+    },
+    {
+      "path": "assets/geometry/panels/5x3.bin",
+      "expected_bytes": 485
+    },
+    {
+      "path": "assets/geometry/panels/5x3.json",
+      "expected_bytes": 10325
+    },
+    {
+      "path": "assets/geometry/particles/at_logo.bin",
+      "expected_bytes": 2609
+    },
+    {
+      "path": "assets/geometry/particles/flower_spine-1024.bin",
+      "expected_bytes": 7319229
+    },
+    {
+      "path": "assets/geometry/particles/flower_spine-128.bin",
+      "expected_bytes": 133260
+    },
+    {
+      "path": "assets/geometry/particles/flower_spine-256.bin",
+      "expected_bytes": 488380
+    },
+    {
+      "path": "assets/geometry/particles/flower_spine-512.bin",
+      "expected_bytes": 1873490
+    },
+    {
+      "path": "assets/geometry/particles/forest-1024.bin",
+      "expected_bytes": 3083106
+    },
+    {
+      "path": "assets/geometry/particles/forest-128.bin",
+      "expected_bytes": 117132
+    },
+    {
+      "path": "assets/geometry/particles/forest-256.bin",
+      "expected_bytes": 401817
+    },
+    {
+      "path": "assets/geometry/particles/forest-512.bin",
+      "expected_bytes": 876944
+    },
+    {
+      "path": "assets/geometry/particles/tree-128.bin",
+      "expected_bytes": 820400
+    },
+    {
+      "path": "assets/geometry/particles/tree-256.bin",
+      "expected_bytes": 1572720
+    },
+    {
+      "path": "assets/geometry/room/bush.bin",
+      "expected_bytes": 32724
+    },
+    {
+      "path": "assets/geometry/room/bush.json",
+      "expected_bytes": 1008539
+    },
+    {
+      "path": "assets/geometry/room/bush_instances.bin",
+      "expected_bytes": 1038
+    },
+    {
+      "path": "assets/geometry/room/bush_instances.json",
+      "expected_bytes": 4405
+    },
+    {
+      "path": "assets/geometry/room/caustic_plane.bin",
+      "expected_bytes": 288
+    },
+    {
+      "path": "assets/geometry/room/caustic_plane.json",
+      "expected_bytes": 733
+    },
+    {
+      "path": "assets/geometry/room/floor.bin",
+      "expected_bytes": 353
+    },
+    {
+      "path": "assets/geometry/room/floor.json",
+      "expected_bytes": 571
+    },
+    {
+      "path": "assets/geometry/room/glass.bin",
+      "expected_bytes": 1214
+    },
+    {
+      "path": "assets/geometry/room/glass.json",
+      "expected_bytes": 69091
+    },
+    {
+      "path": "assets/geometry/room/land.bin",
+      "expected_bytes": 11931
+    },
+    {
+      "path": "assets/geometry/room/land.json",
+      "expected_bytes": 858677
+    },
+    {
+      "path": "assets/geometry/room/light.bin",
+      "expected_bytes": 343
+    },
+    {
+      "path": "assets/geometry/room/light.json",
+      "expected_bytes": 2438
+    },
+    {
+      "path": "assets/geometry/room/prop.bin",
+      "expected_bytes": 1584
+    },
+    {
+      "path": "assets/geometry/room/prop.json",
+      "expected_bytes": 113864
+    },
+    {
+      "path": "assets/geometry/room/walls.bin",
+      "expected_bytes": 437
+    },
+    {
+      "path": "assets/geometry/room/walls.json",
+      "expected_bytes": 2827
+    },
+    {
+      "path": "assets/geometry/spine/spine.bin",
+      "expected_bytes": 15117
+    },
+    {
+      "path": "assets/geometry/spine/spine.json",
+      "expected_bytes": 1446457
+    },
+    {
+      "path": "assets/geometry/tree_room/cables.bin",
+      "expected_bytes": 87527
+    },
+    {
+      "path": "assets/geometry/tree_room/cables.json",
+      "expected_bytes": 5747844
+    },
+    {
+      "path": "assets/geometry/tree_room/mask.bin",
+      "expected_bytes": 1663
+    },
+    {
+      "path": "assets/geometry/tree_room/mask.json",
+      "expected_bytes": 76236
+    },
+    {
+      "path": "assets/geometry/tree_room/pillars.bin",
+      "expected_bytes": 3278
+    },
+    {
+      "path": "assets/geometry/tree_room/pillars.json",
+      "expected_bytes": 177901
+    },
+    {
+      "path": "assets/geometry/tree_room/rock_L.bin",
+      "expected_bytes": 5004
+    },
+    {
+      "path": "assets/geometry/tree_room/rock_L.json",
+      "expected_bytes": 277142
+    },
+    {
+      "path": "assets/geometry/tree_room/rock_R.bin",
+      "expected_bytes": 12253
+    },
+    {
+      "path": "assets/geometry/tree_room/rock_R.json",
+      "expected_bytes": 950266
+    },
+    {
+      "path": "assets/geometry/tree_room/rocky_soil.bin",
+      "expected_bytes": 68637
+    },
+    {
+      "path": "assets/geometry/tree_room/rocky_soil.json",
+      "expected_bytes": 6397432
+    },
+    {
+      "path": "assets/geometry/tree_room/sand.bin",
+      "expected_bytes": 6714
+    },
+    {
+      "path": "assets/geometry/tree_room/sand.json",
+      "expected_bytes": 531248
+    },
+    {
+      "path": "assets/geometry/tree_room/structure.bin",
+      "expected_bytes": 145133
+    },
+    {
+      "path": "assets/geometry/tree_room/structure.json",
+      "expected_bytes": 13120879
+    },
+    {
+      "path": "assets/geometry/tree_room/tree.bin",
+      "expected_bytes": 555893
+    },
+    {
+      "path": "assets/geometry/tree_room/tree.json",
+      "expected_bytes": 33329808
+    },
+    {
+      "path": "assets/geometry/tree_room/treePCv3-128.bin",
+      "expected_bytes": 83020
+    },
+    {
+      "path": "assets/geometry/tree_room/treePCv3-128.json",
+      "expected_bytes": 1226047
+    },
+    {
+      "path": "assets/geometry/tree_room/treePCv3-256.bin",
+      "expected_bytes": 309738
+    },
+    {
+      "path": "assets/geometry/tree_room/treePCv3-256.json",
+      "expected_bytes": 4900620
+    },
+    {
+      "path": "assets/geometry/tree_room/tree_leaves.bin",
+      "expected_bytes": 119158
+    },
+    {
+      "path": "assets/geometry/tree_room/tree_leaves.json",
+      "expected_bytes": 3188740
+    },
+    {
+      "path": "assets/geometry/tree_room/tree_trunk.bin",
+      "expected_bytes": 240352
+    },
+    {
+      "path": "assets/geometry/tree_room/tree_trunk.json",
+      "expected_bytes": 20659103
+    },
+    {
+      "path": "assets/geometry/tree_room/walls.bin",
+      "expected_bytes": 7394
+    },
+    {
+      "path": "assets/geometry/tree_room/walls.json",
+      "expected_bytes": 634977
+    },
+    {
+      "path": "assets/geometry/tree_room/water.bin",
+      "expected_bytes": 279
+    },
+    {
+      "path": "assets/geometry/tree_room/water.json",
+      "expected_bytes": 490
+    },
+    {
+      "path": "assets/geometry/work/chainlink.bin",
+      "expected_bytes": 5774
+    },
+    {
+      "path": "assets/geometry/work/chainlink.json",
+      "expected_bytes": 472723
+    },
+    {
+      "path": "assets/geometry/work/cube.bin",
+      "expected_bytes": 2067
+    },
+    {
+      "path": "assets/geometry/work/cube.json",
+      "expected_bytes": 130520
+    },
+    {
+      "path": "assets/geometry/work/spline_animation_test_v04-SPLINES.json",
+      "expected_bytes": 223521
+    },
+    {
+      "path": "assets/geometry/work/splines_anim4-SPLINES.json",
+      "expected_bytes": 41076
+    },
+    {
+      "path": "assets/geometry/work/splines_anim5-SPLINES.json",
+      "expected_bytes": 41052
+    },
+    {
+      "path": "assets/geometry/work/swirlSplines-SPLINES.json",
+      "expected_bytes": 54038
+    },
+    {
+      "path": "assets/geometry/work/swirl_12-SPLINES.json",
+      "expected_bytes": 510918
+    },
+    {
+      "path": "assets/images/_lighting/arealights.json",
+      "expected_bytes": 307348
+    },
+    {
+      "path": "assets/images/_lightvolume/light-mask.jpg",
+      "expected_bytes": 5236
+    },
+    {
+      "path": "assets/images/_lightvolume/light.jpg",
+      "expected_bytes": 17350
+    },
+    {
+      "path": "assets/images/_scenelayout/black.jpg",
+      "expected_bytes": 1129
+    },
+    {
+      "path": "assets/images/_scenelayout/empty_mro.jpg",
+      "expected_bytes": 1110
+    },
+    {
+      "path": "assets/images/_scenelayout/empty_mro.ktx2",
+      "expected_bytes": 492
+    },
+    {
+      "path": "assets/images/_scenelayout/empty_normal.ktx2",
+      "expected_bytes": 493
+    },
+    {
+      "path": "assets/images/_scenelayout/empty_normal.png",
+      "expected_bytes": 95
+    },
+    {
+      "path": "assets/images/_scenelayout/invert.cube",
+      "expected_bytes": 288
+    },
+    {
+      "path": "assets/images/_scenelayout/mask.jpg",
+      "expected_bytes": 1129
+    },
+    {
+      "path": "assets/images/_scenelayout/uv.jpg",
+      "expected_bytes": 17100
+    },
+    {
+      "path": "assets/images/_temp/Star 2.png",
+      "expected_bytes": 442
+    },
+    {
+      "path": "assets/images/_temp/arrow.png",
+      "expected_bytes": 697
+    },
+    {
+      "path": "assets/images/_temp/contact.jpg",
+      "expected_bytes": 639238
+    },
+    {
+      "path": "assets/images/_temp/globe.png",
+      "expected_bytes": 293996
+    },
+    {
+      "path": "assets/images/_temp/star.png",
+      "expected_bytes": 790
+    },
+    {
+      "path": "assets/images/lab.jpg",
+      "expected_bytes": 179503
+    },
+    {
+      "path": "assets/images/particle/matcap3.ktx2",
+      "expected_bytes": 1951
+    },
+    {
+      "path": "assets/images/particle/matcap3.png",
+      "expected_bytes": 6734
+    },
+    {
+      "path": "assets/images/pbr/alien_cracked_2_basecolor.ktx2",
+      "expected_bytes": 55172
+    },
+    {
+      "path": "assets/images/pbr/alien_cracked_2_basecolor.png",
+      "expected_bytes": 239528
+    },
+    {
+      "path": "assets/images/pbr/alien_cracked_2_mro.png",
+      "expected_bytes": 223502
+    },
+    {
+      "path": "assets/images/pbr/alien_cracked_2_normal.png",
+      "expected_bytes": 251872
+    },
+    {
+      "path": "assets/images/pbr/black.png",
+      "expected_bytes": 82
+    },
+    {
+      "path": "assets/images/pbr/cargo_mro.png",
+      "expected_bytes": 142067
+    },
+    {
+      "path": "assets/images/pbr/cargo_normal.png",
+      "expected_bytes": 137308
+    },
+    {
+      "path": "assets/images/pbr/cliffs_BaseColor.png",
+      "expected_bytes": 232168
+    },
+    {
+      "path": "assets/images/pbr/cliffs_MRO.ktx2",
+      "expected_bytes": 40978
+    },
+    {
+      "path": "assets/images/pbr/cliffs_MRO.png",
+      "expected_bytes": 186154
+    },
+    {
+      "path": "assets/images/pbr/cliffs_Normal.png",
+      "expected_bytes": 208758
+    },
+    {
+      "path": "assets/images/pbr/clovers_BaseColor.png",
+      "expected_bytes": 249856
+    },
+    {
+      "path": "assets/images/pbr/clovers_MRO.png",
+      "expected_bytes": 202798
+    },
+    {
+      "path": "assets/images/pbr/clovers_Normal.png",
+      "expected_bytes": 258195
+    },
+    {
+      "path": "assets/images/pbr/corsica_beach-diffuse-RGBM.png",
+      "expected_bytes": 90672
+    },
+    {
+      "path": "assets/images/pbr/corsica_beach-specular-RGBM.png",
+      "expected_bytes": 732570
+    },
+    {
+      "path": "assets/images/pbr/cracked_ice_basecolor.ktx2",
+      "expected_bytes": 51750
+    },
+    {
+      "path": "assets/images/pbr/cracked_ice_basecolor.png",
+      "expected_bytes": 223486
+    },
+    {
+      "path": "assets/images/pbr/cracked_ice_mro.png",
+      "expected_bytes": 177606
+    },
+    {
+      "path": "assets/images/pbr/cracked_ice_normal.png",
+      "expected_bytes": 175958
+    },
+    {
+      "path": "assets/images/pbr/damaged_road_basecolor.png",
+      "expected_bytes": 203669
+    },
+    {
+      "path": "assets/images/pbr/damaged_road_mro.ktx2",
+      "expected_bytes": 51105
+    },
+    {
+      "path": "assets/images/pbr/damaged_road_mro.png",
+      "expected_bytes": 233703
+    },
+    {
+      "path": "assets/images/pbr/damaged_road_normal.ktx2",
+      "expected_bytes": 44387
+    },
+    {
+      "path": "assets/images/pbr/damaged_road_normal.png",
+      "expected_bytes": 2082201
+    },
+    {
+      "path": "assets/images/pbr/damaged_road_roughness.jpg",
+      "expected_bytes": 76284
+    },
+    {
+      "path": "assets/images/pbr/desert_bedrock_basecolor.png",
+      "expected_bytes": 238535
+    },
+    {
+      "path": "assets/images/pbr/desert_bedrock_mro.png",
+      "expected_bytes": 232044
+    },
+    {
+      "path": "assets/images/pbr/desert_bedrock_normal.png",
+      "expected_bytes": 229622
+    },
+    {
+      "path": "assets/images/pbr/dune_BaseColor.png",
+      "expected_bytes": 240977
+    },
+    {
+      "path": "assets/images/pbr/dune_MRO.png",
+      "expected_bytes": 179187
+    },
+    {
+      "path": "assets/images/pbr/dune_Normal.png",
+      "expected_bytes": 218905
+    },
+    {
+      "path": "assets/images/pbr/gold_leaf_basecolor.png",
+      "expected_bytes": 183040
+    },
+    {
+      "path": "assets/images/pbr/gold_leaf_mro.png",
+      "expected_bytes": 8012
+    },
+    {
+      "path": "assets/images/pbr/gold_leaf_normal.png",
+      "expected_bytes": 424192
+    },
+    {
+      "path": "assets/images/pbr/gold_leaf_normal.png.out",
+      "expected_bytes": 0
+    },
+    {
+      "path": "assets/images/pbr/gold_ore_basecolor.png",
+      "expected_bytes": 643561
+    },
+    {
+      "path": "assets/images/pbr/gold_ore_mro.png",
+      "expected_bytes": 544875
+    },
+    {
+      "path": "assets/images/pbr/gold_ore_normal.png",
+      "expected_bytes": 654667
+    },
+    {
+      "path": "assets/images/pbr/grey.png",
+      "expected_bytes": 70
+    },
+    {
+      "path": "assets/images/pbr/heatshield_BaseColor.png",
+      "expected_bytes": 422118
+    },
+    {
+      "path": "assets/images/pbr/heatshield_MRO.png",
+      "expected_bytes": 256069
+    },
+    {
+      "path": "assets/images/pbr/heatshield_Normal.png",
+      "expected_bytes": 205978
+    },
+    {
+      "path": "assets/images/pbr/jungle_soil_basecolor.png",
+      "expected_bytes": 482615
+    },
+    {
+      "path": "assets/images/pbr/jungle_soil_mro.png",
+      "expected_bytes": 567617
+    },
+    {
+      "path": "assets/images/pbr/jungle_soil_normal.ktx2",
+      "expected_bytes": 54644
+    },
+    {
+      "path": "assets/images/pbr/jungle_soil_normal.png",
+      "expected_bytes": 571380
+    },
+    {
+      "path": "assets/images/pbr/lut.png",
+      "expected_bytes": 16623
+    },
+    {
+      "path": "assets/images/pbr/maple_parquet_basecolor.png",
+      "expected_bytes": 455585
+    },
+    {
+      "path": "assets/images/pbr/maple_parquet_mro.png",
+      "expected_bytes": 342840
+    },
+    {
+      "path": "assets/images/pbr/maple_parquet_normal.png",
+      "expected_bytes": 307514
+    },
+    {
+      "path": "assets/images/pbr/mud_basecolor.png",
+      "expected_bytes": 456327
+    },
+    {
+      "path": "assets/images/pbr/mud_mro.png",
+      "expected_bytes": 304742
+    },
+    {
+      "path": "assets/images/pbr/mud_normal.png",
+      "expected_bytes": 625607
+    },
+    {
+      "path": "assets/images/pbr/paddedfabric_BaseColor.png",
+      "expected_bytes": 227230
+    },
+    {
+      "path": "assets/images/pbr/paddedfabric_MRO.png",
+      "expected_bytes": 234588
+    },
+    {
+      "path": "assets/images/pbr/paddedfabric_Normal.png",
+      "expected_bytes": 375760
+    },
+    {
+      "path": "assets/images/pbr/spacepanel_BaseColor.png",
+      "expected_bytes": 414971
+    },
+    {
+      "path": "assets/images/pbr/spacepanel_MRO.png",
+      "expected_bytes": 374776
+    },
+    {
+      "path": "assets/images/pbr/spacepanel_Normal.png",
+      "expected_bytes": 188130
+    },
+    {
+      "path": "assets/images/pbr/spacetiles_BaseColor.png",
+      "expected_bytes": 386128
+    },
+    {
+      "path": "assets/images/pbr/spacetiles_MRO.png",
+      "expected_bytes": 293440
+    },
+    {
+      "path": "assets/images/pbr/spacetiles_Normal.png",
+      "expected_bytes": 239662
+    },
+    {
+      "path": "assets/images/pbr/stylized_grass_BaseColor.png",
+      "expected_bytes": 372121
+    },
+    {
+      "path": "assets/images/pbr/stylized_grass_MRO.png",
+      "expected_bytes": 159043
+    },
+    {
+      "path": "assets/images/pbr/stylized_grass_Normal.png",
+      "expected_bytes": 297734
+    },
+    {
+      "path": "assets/images/pbr/teracotta_basecolor.png",
+      "expected_bytes": 415564
+    },
+    {
+      "path": "assets/images/pbr/teracotta_mro.png",
+      "expected_bytes": 351049
+    },
+    {
+      "path": "assets/images/pbr/teracotta_normal.png",
+      "expected_bytes": 406126
+    },
+    {
+      "path": "assets/images/pbr/tomoco_2-diffuse-sRGB.png",
+      "expected_bytes": 1996
+    },
+    {
+      "path": "assets/images/pbr/tomoco_2-specular-sRGB.png",
+      "expected_bytes": 67278
+    },
+    {
+      "path": "assets/images/pbr/tomoco_studio-diffuse-RGBM.png",
+      "expected_bytes": 3613
+    },
+    {
+      "path": "assets/images/pbr/tomoco_studio-specular-RGBM.png",
+      "expected_bytes": 93991
+    },
+    {
+      "path": "assets/images/pbr/wet_paint_basecolor.png",
+      "expected_bytes": 90754
+    },
+    {
+      "path": "assets/images/pbr/wet_paint_mro.png",
+      "expected_bytes": 174228
+    },
+    {
+      "path": "assets/images/pbr/wet_paint_normal.png",
+      "expected_bytes": 366403
+    },
+    {
+      "path": "assets/images/pbr/wood_parquet_basecolor.png",
+      "expected_bytes": 601896
+    },
+    {
+      "path": "assets/images/pbr/wood_parquet_mro.png",
+      "expected_bytes": 200927
+    },
+    {
+      "path": "assets/images/pbr/wood_parquet_normal.png",
+      "expected_bytes": 324009
+    },
+    {
+      "path": "assets/images/pbr/woodplanks_basecolor.png",
+      "expected_bytes": 336445
+    },
+    {
+      "path": "assets/images/pbr/woodplanks_mro.png",
+      "expected_bytes": 351315
+    },
+    {
+      "path": "assets/images/pbr/woodplanks_normal.ktx2",
+      "expected_bytes": 39899
+    },
+    {
+      "path": "assets/images/pbr/woodplanks_normal.png",
+      "expected_bytes": 316381
+    },
+    {
+      "path": "assets/images/room/1234.ktx2",
+      "expected_bytes": 77280
+    },
+    {
+      "path": "assets/images/room/1234.png",
+      "expected_bytes": 585845
+    },
+    {
+      "path": "assets/images/room/Landscape_default_Basecolor.jpg",
+      "expected_bytes": 525754
+    },
+    {
+      "path": "assets/images/room/Landscape_default_Basecolor.ktx2",
+      "expected_bytes": 168665
+    },
+    {
+      "path": "assets/images/room/Landscape_default_MRO.jpg",
+      "expected_bytes": 254829
+    },
+    {
+      "path": "assets/images/room/Landscape_default_MRO.ktx2",
+      "expected_bytes": 150616
+    },
+    {
+      "path": "assets/images/room/Landscape_default_Normal.jpg",
+      "expected_bytes": 496544
+    },
+    {
+      "path": "assets/images/room/Landscape_default_Normal.ktx2",
+      "expected_bytes": 169600
+    },
+    {
+      "path": "assets/images/room/caustic.jpg",
+      "expected_bytes": 114975
+    },
+    {
+      "path": "assets/images/room/concrete-polished-normal.jpg",
+      "expected_bytes": 14094
+    },
+    {
+      "path": "assets/images/room/concrete-polished-normal.ktx2",
+      "expected_bytes": 3861
+    },
+    {
+      "path": "assets/images/room/concrete_light_mro.jpg",
+      "expected_bytes": 147650
+    },
+    {
+      "path": "assets/images/room/concrete_light_mro.ktx2",
+      "expected_bytes": 30851
+    },
+    {
+      "path": "assets/images/room/damaged_road_normal.jpg",
+      "expected_bytes": 219612
+    },
+    {
+      "path": "assets/images/room/floor-lightbounce.jpg",
+      "expected_bytes": 11996
+    },
+    {
+      "path": "assets/images/room/floor-lightbounce.ktx2",
+      "expected_bytes": 13045
+    },
+    {
+      "path": "assets/images/room/floor_DefaultMaterial_MRO.png",
+      "expected_bytes": 16903
+    },
+    {
+      "path": "assets/images/room/floor_DefaultMaterial_Normal.png",
+      "expected_bytes": 1671655
+    },
+    {
+      "path": "assets/images/room/floor_diffuse.jpg",
+      "expected_bytes": 189007
+    },
+    {
+      "path": "assets/images/room/floor_lightmap.jpg",
+      "expected_bytes": 149858
+    },
+    {
+      "path": "assets/images/room/floor_lightmap_bw.jpg",
+      "expected_bytes": 241016
+    },
+    {
+      "path": "assets/images/room/floor_lightmap_bw2.jpg",
+      "expected_bytes": 157668
+    },
+    {
+      "path": "assets/images/room/land_lightmap_bw.jpg",
+      "expected_bytes": 242943
+    },
+    {
+      "path": "assets/images/room/landscape_lightmap.jpg",
+      "expected_bytes": 64051
+    },
+    {
+      "path": "assets/images/room/landscape_lightmap2.jpg",
+      "expected_bytes": 225561
+    },
+    {
+      "path": "assets/images/room/matcap-test.jpg",
+      "expected_bytes": 51288
+    },
+    {
+      "path": "assets/images/room/matcap-test.ktx2",
+      "expected_bytes": 44610
+    },
+    {
+      "path": "assets/images/room/matcap.jpg",
+      "expected_bytes": 6517
+    },
+    {
+      "path": "assets/images/room/pano-ATv6-1700435330543-diffuse-sRGB.ktx2",
+      "expected_bytes": 1905
+    },
+    {
+      "path": "assets/images/room/pano-ATv6-1700435330543-diffuse-sRGB.png",
+      "expected_bytes": 6782
+    },
+    {
+      "path": "assets/images/room/pano-ATv6-1700435330543-specular-sRGB.png",
+      "expected_bytes": 77951
+    },
+    {
+      "path": "assets/images/room/pano-ATv6-1700435330543.jpg",
+      "expected_bytes": 37436
+    },
+    {
+      "path": "assets/images/room/pano-ATv6-1700435330543.ktx2",
+      "expected_bytes": 26680
+    },
+    {
+      "path": "assets/images/room/prop_lightmap.jpg",
+      "expected_bytes": 73853
+    },
+    {
+      "path": "assets/images/room/prop_lightmap.ktx2",
+      "expected_bytes": 32813
+    },
+    {
+      "path": "assets/images/room/room_AO.jpg",
+      "expected_bytes": 138730
+    },
+    {
+      "path": "assets/images/room/room_combined.jpg",
+      "expected_bytes": 241713
+    },
+    {
+      "path": "assets/images/room/room_combined.ktx2",
+      "expected_bytes": 157955
+    },
+    {
+      "path": "assets/images/room/room_lightmap_bw.jpg",
+      "expected_bytes": 258637
+    },
+    {
+      "path": "assets/images/room/tomoco_studio-diffuse-sRGB.ktx2",
+      "expected_bytes": 5328
+    },
+    {
+      "path": "assets/images/room/tomoco_studio-diffuse-sRGB.png",
+      "expected_bytes": 37012
+    },
+    {
+      "path": "assets/images/room/tomoco_studio-specular-RGBM.ktx2",
+      "expected_bytes": 99008
+    },
+    {
+      "path": "assets/images/room/tomoco_studio-specular-RGBM.png",
+      "expected_bytes": 811559
+    },
+    {
+      "path": "assets/images/room/wall-bouncelight.jpg",
+      "expected_bytes": 12054
+    },
+    {
+      "path": "assets/images/room/wall-bouncelight.ktx2",
+      "expected_bytes": 14297
+    },
+    {
+      "path": "assets/images/room/walls_default_MRO.png",
+      "expected_bytes": 3351861
+    },
+    {
+      "path": "assets/images/room/walls_diffuse.jpg",
+      "expected_bytes": 137675
+    },
+    {
+      "path": "assets/images/room/walls_lightmap.jpg",
+      "expected_bytes": 324921
+    },
+    {
+      "path": "assets/images/tree_room/4141-normal.jpg",
+      "expected_bytes": 170168
+    },
+    {
+      "path": "assets/images/tree_room/4141-normal.ktx2",
+      "expected_bytes": 62662
+    },
+    {
+      "path": "assets/images/tree_room/CABLES___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 209206
+    },
+    {
+      "path": "assets/images/tree_room/CABLES___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 100626
+    },
+    {
+      "path": "assets/images/tree_room/CABLES___PBR_AT_MRO.jpg",
+      "expected_bytes": 78098
+    },
+    {
+      "path": "assets/images/tree_room/CABLES___PBR_AT_MRO.ktx2",
+      "expected_bytes": 28218
+    },
+    {
+      "path": "assets/images/tree_room/CABLES___PBR_Normal.jpg",
+      "expected_bytes": 465819
+    },
+    {
+      "path": "assets/images/tree_room/CABLES___PBR_Normal.ktx2",
+      "expected_bytes": 131543
+    },
+    {
+      "path": "assets/images/tree_room/PILLARS___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 61535
+    },
+    {
+      "path": "assets/images/tree_room/PILLARS___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 48879
+    },
+    {
+      "path": "assets/images/tree_room/PILLARS___PBR_AT_MRO.jpg",
+      "expected_bytes": 178004
+    },
+    {
+      "path": "assets/images/tree_room/PILLARS___PBR_AT_MRO.ktx2",
+      "expected_bytes": 67994
+    },
+    {
+      "path": "assets/images/tree_room/PILLARS___PBR_Normal.jpg",
+      "expected_bytes": 257549
+    },
+    {
+      "path": "assets/images/tree_room/PILLARS___PBR_Normal.ktx2",
+      "expected_bytes": 79488
+    },
+    {
+      "path": "assets/images/tree_room/ROCKY_SOIL___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 62986
+    },
+    {
+      "path": "assets/images/tree_room/ROCKY_SOIL___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 38157
+    },
+    {
+      "path": "assets/images/tree_room/ROCKY_SOIL___PBR_AT_MRO.jpg",
+      "expected_bytes": 216252
+    },
+    {
+      "path": "assets/images/tree_room/ROCKY_SOIL___PBR_AT_MRO.ktx2",
+      "expected_bytes": 62877
+    },
+    {
+      "path": "assets/images/tree_room/ROCKY_SOIL___PBR_Normal.jpg",
+      "expected_bytes": 1058996
+    },
+    {
+      "path": "assets/images/tree_room/ROCKY_SOIL___PBR_Normal.ktx2",
+      "expected_bytes": 174547
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_L___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 42346
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_L___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 27408
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_L___PBR_AT_MRO.jpg",
+      "expected_bytes": 135135
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_L___PBR_AT_MRO.ktx2",
+      "expected_bytes": 48823
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_L___PBR_Normal.jpg",
+      "expected_bytes": 613631
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_L___PBR_Normal.ktx2",
+      "expected_bytes": 138030
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_R___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 85092
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_R___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 50354
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_R___PBR_AT_MRO.jpg",
+      "expected_bytes": 141576
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_R___PBR_AT_MRO.ktx2",
+      "expected_bytes": 44004
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_R___PBR_Normal.jpg",
+      "expected_bytes": 570241
+    },
+    {
+      "path": "assets/images/tree_room/ROCK_R___PBR_Normal.ktx2",
+      "expected_bytes": 162237
+    },
+    {
+      "path": "assets/images/tree_room/SAND___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 68097
+    },
+    {
+      "path": "assets/images/tree_room/SAND___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 48609
+    },
+    {
+      "path": "assets/images/tree_room/SAND___PBR_AT_MRO.jpg",
+      "expected_bytes": 44115
+    },
+    {
+      "path": "assets/images/tree_room/SAND___PBR_AT_MRO.ktx2",
+      "expected_bytes": 19974
+    },
+    {
+      "path": "assets/images/tree_room/SAND___PBR_Normal.jpg",
+      "expected_bytes": 466738
+    },
+    {
+      "path": "assets/images/tree_room/SAND___PBR_Normal.ktx2",
+      "expected_bytes": 126734
+    },
+    {
+      "path": "assets/images/tree_room/STRUCTURE___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 276219
+    },
+    {
+      "path": "assets/images/tree_room/STRUCTURE___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 128224
+    },
+    {
+      "path": "assets/images/tree_room/STRUCTURE___PBR_AT_MRO.jpg",
+      "expected_bytes": 370630
+    },
+    {
+      "path": "assets/images/tree_room/STRUCTURE___PBR_AT_MRO.ktx2",
+      "expected_bytes": 106212
+    },
+    {
+      "path": "assets/images/tree_room/STRUCTURE___PBR_Normal.jpg",
+      "expected_bytes": 95808
+    },
+    {
+      "path": "assets/images/tree_room/STRUCTURE___PBR_Normal.ktx2",
+      "expected_bytes": 45357
+    },
+    {
+      "path": "assets/images/tree_room/TREE___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 13416
+    },
+    {
+      "path": "assets/images/tree_room/TREE___PBR_Normal.jpg",
+      "expected_bytes": 14144
+    },
+    {
+      "path": "assets/images/tree_room/TREE_leaves___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 700192
+    },
+    {
+      "path": "assets/images/tree_room/TREE_leaves___PBR_AT_MRO.jpg",
+      "expected_bytes": 1020148
+    },
+    {
+      "path": "assets/images/tree_room/TREE_leaves___PBR_Alpha.jpg",
+      "expected_bytes": 785473
+    },
+    {
+      "path": "assets/images/tree_room/TREE_trunk_branches___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 366174
+    },
+    {
+      "path": "assets/images/tree_room/TREE_trunk_branches___PBR_AT_MRO.jpg",
+      "expected_bytes": 1078760
+    },
+    {
+      "path": "assets/images/tree_room/WALLS_CEILING___CyclesBake_COMBINED.jpg",
+      "expected_bytes": 95813
+    },
+    {
+      "path": "assets/images/tree_room/WALLS_CEILING___CyclesBake_COMBINED.ktx2",
+      "expected_bytes": 57497
+    },
+    {
+      "path": "assets/images/tree_room/WALLS_CEILING___PBR_AT_MRO.jpg",
+      "expected_bytes": 20199
+    },
+    {
+      "path": "assets/images/tree_room/WALLS_CEILING___PBR_AT_MRO.ktx2",
+      "expected_bytes": 2578
+    },
+    {
+      "path": "assets/images/tree_room/WALLS_CEILING___PBR_Normal.jpg",
+      "expected_bytes": 84456
+    },
+    {
+      "path": "assets/images/tree_room/WALLS_CEILING___PBR_Normal.ktx2",
+      "expected_bytes": 32846
+    },
+    {
+      "path": "assets/images/tree_room/blck.jpg",
+      "expected_bytes": 1131
+    },
+    {
+      "path": "assets/images/tree_room/matcap_tree_room.jpg",
+      "expected_bytes": 90331
+    },
+    {
+      "path": "assets/images/tree_room/matcap_tree_room.png",
+      "expected_bytes": 465123
+    },
+    {
+      "path": "assets/images/tree_room/waternormals.jpg",
+      "expected_bytes": 26768
+    },
+    {
+      "path": "assets/images/ui/arrow.png",
+      "expected_bytes": 697
+    },
+    {
+      "path": "assets/images/ui/at-labrds.jpg",
+      "expected_bytes": 12913
+    },
+    {
+      "path": "assets/images/ui/close.svg",
+      "expected_bytes": 766
+    },
+    {
+      "path": "assets/images/ui/fb.png",
+      "expected_bytes": 330
+    },
+    {
+      "path": "assets/images/ui/globe.png",
+      "expected_bytes": 128953
+    },
+    {
+      "path": "assets/images/ui/ig.png",
+      "expected_bytes": 5024
+    },
+    {
+      "path": "assets/images/ui/in.png",
+      "expected_bytes": 2886
+    },
+    {
+      "path": "assets/images/ui/star.png",
+      "expected_bytes": 790
+    },
+    {
+      "path": "assets/images/ui/tw.png",
+      "expected_bytes": 4965
+    },
+    {
+      "path": "assets/images/unsupported-bg.jpg",
+      "expected_bytes": 196572
+    },
+    {
+      "path": "assets/images/work/env1.jpg",
+      "expected_bytes": 21655
+    },
+    {
+      "path": "assets/images/work/env1.ktx2",
+      "expected_bytes": 21416
+    },
+    {
+      "path": "assets/images/work/ewnv0.jpg",
+      "expected_bytes": 33874
+    },
+    {
+      "path": "assets/images/work/frostednormal.jpg",
+      "expected_bytes": 12487
+    },
+    {
+      "path": "assets/images/work/frostednormal.png",
+      "expected_bytes": 1268607
+    },
+    {
+      "path": "assets/images/work/test.jpg",
+      "expected_bytes": 48571
+    },
+    {
+      "path": "assets/images/work/test.ktx2",
+      "expected_bytes": 22568
+    },
+    {
+      "path": "assets/js/hydra/hydra-thread.js",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/meta/android-chrome-192x192.png",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/meta/android-chrome-512x512.png",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/meta/apple-touch-icon.png",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/meta/favicon-16x16.png",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/meta/favicon-32x32.png",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/meta/safari-pinned-tab.svg",
+      "expected_bytes": null
+    },
+    {
+      "path": "assets/music/BXRDVJA - Ghost Cities.mp3",
+      "expected_bytes": 2767768
+    },
+    {
+      "path": "assets/music/Downtown Binary - Other Worlds.mp3",
+      "expected_bytes": 4224774
+    },
+    {
+      "path": "assets/music/Flint - Fly up High.mp3",
+      "expected_bytes": 3000990
+    },
+    {
+      "path": "assets/music/Hotham - To the Stars.mp3",
+      "expected_bytes": 2846345
+    },
+    {
+      "path": "assets/music/Jozeque - Sultans of Streams.mp3",
+      "expected_bytes": 2178446
+    },
+    {
+      "path": "assets/music/Magiksolo - Quantum World.mp3",
+      "expected_bytes": 1592049
+    },
+    {
+      "path": "assets/music/Sergey Azbel - Themis.mp3",
+      "expected_bytes": 2254932
+    },
+    {
+      "path": "assets/music/nuer self - Dusk.mp3",
+      "expected_bytes": 3780901
+    },
+    {
+      "path": "assets/video/reel-frame.jpg",
+      "expected_bytes": 115139
+    },
+    {
+      "path": "assets/video/reel.mp4",
+      "expected_bytes": 18536179
+    },
+    {
+      "path": "sw.js",
+      "expected_bytes": null
+    },
+    {
+      "path": "unsupported.html",
+      "expected_bytes": 1834
+    }
+  ]
+}

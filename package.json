@@ -1,0 +1,14 @@
+{
+  "name": "activetheory-production-rebuild",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Production-grade reconstruction workspace for the Active Theory V6 experience.",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/server.mjs",
+    "verify": "node scripts/verify.mjs",
+    "smoke": "node scripts/smoke-test.mjs",
+    "media:inventory": "python3 scripts/inventory-cms-media.py",
+    "inventory": "python3 scripts/assemble-live-assets.py"
+  }
+}

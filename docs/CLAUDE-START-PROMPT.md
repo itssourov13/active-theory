@@ -1,0 +1,5 @@
+# Claude Start Prompt — Phase 1 only
+
+Read `CLAUDE.md`, `docs/PHASE-1-PARITY-MATRIX.md`, `docs/PHASE-1-RECONSTRUCTION-PLAN.md`, `docs/PHASE-1-LIVE-AUDIT.md`, `docs/BASELINE-STATUS.md`, `docs/CLAUDE-HANDOFF.md`, and the relevant forensic/API/security docs. Phase 1 is **not complete**: assets and the basic smoke suite have passed recorded checks, but WebGL 2 visual parity and real desktop/mobile walkthroughs remain open. The local assistant is a deterministic approximation and has a known E.C.H.O. → `echo` slug mismatch from a separate 65-project probe. The local WebSocket service implements core room events but full protocol/WebRTC/reconnect parity is unverified.
+
+Continue from the original runtime in `app/public/`; preserve verified files, map differences against the current live site, and use supported hardware-accelerated WebGL 2 for visual checks. Update the parity matrix and audit with evidence, device/browser details, test results and remaining gaps. Keep `vendor/forensic/*` untouched. Do not redesign, add premium enhancements, start the broader roadmap, or begin Phase 2.
