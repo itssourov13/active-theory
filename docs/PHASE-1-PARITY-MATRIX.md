@@ -22,6 +22,10 @@ This matrix is the current decision checklist. Use these status meanings:
 | Local HTTP serving | Root, representative application routes, unsupported page and known assets returned expected responses in recorded checks | Verified for those routes only |
 | CMS integration bridge | Same-origin CMS request mapping and captured project response were tested | Partial |
 | Media proxy | Allowlisted sample image, cache, HEAD and byte-range checks passed | Partial |
+| Offline media store | All 764 CMS-referenced GCS media objects mirrored locally (1.28 GB) and verified against a pinned sha256 manifest; server serves local-first | Verified for captured CMS media set |
+| Live-vs-local HTTP parity | `parity_report.json`: 4/4 routes, 21/21 assets, 5/5 CMS, 6/6 media byte-identical (bridge line + media-cache URL rewriting normalized) | Verified at HTTP level |
+| SSR deep links (`/work/<slug>` head) | 67/67 cases byte-identical vs live (65 slugs + unknown slug + trailing slash); og:image rule = `image.sizes.i1024px.url` else `video.thumbnail` | Verified at HTTP level |
+| Remaining-asset recovery sweep | media 764/764, v6 site files 9/9 (integrated), legacy v4/v5 1,051 files, 44 experiment hosts fully harvested: 5,193/5,193 referenced files resolved, 0 failures, 0 content diffs (see `docs/ASSET-RECONSTRUCTION.md`); the 61 remaining main-site refs return the live SPA fallback itself and are unrecoverable | Verified (forensic recovery) |
 | Assistant API shape | Four local actions pass the basic smoke flow; an ad-hoc 65-project probe found one slug mismatch | Partial / approximation |
 | Realtime WebSocket | Basic two-client room join, state sync, and disconnect smoke passed | Partial |
 | WebGL 2 scene startup | Automated/headless test environment lacked WebGL 2 and displayed unsupported fallback | Open |
@@ -37,9 +41,11 @@ The recovered `app/public/` runtime and `vendor/forensic/*` references remain th
 
 Recorded verification results:
 
-- `npm run verify`: **PASS**, 386/386 manifest entries, pinned core hashes passed.
+- `npm run verify`: **PASS**, 386/386 manifest entries, pinned core hashes, and the full 764-object media store verified against `.artifacts/media-store-manifest.json` (URL → sha256 → bytes).
 - Asset fetch report: **157 downloaded, 213 skipped/reused, 0 failed, 0 declared-size mismatches**.
-- `npm run smoke`: **PASS**, 26/26 checks on `fix/loader-stall-45`.
+- `npm run smoke`: **PASS**, 27/27 checks on `fix/loader-stall-45` (includes SSR project title for a known slug and base title for an unknown slug).
+- Live-vs-local parity: **36/36** (see `recovered-remaining/parity_report.json` and `parity_check_final.txt`); the only normalization applied is the documented local bridge line and the intentional `/media-cache/<sha256>` URL rewriting; after normalizing, all five CMS snapshots are byte-identical to the live bucket (no real CMS drift).
+- SSR deep-link sweep: **67/67 byte-identical** to live (`recovered-remaining/ssr_sweep_results.txt`), fixing the earlier 15-project og:image delta (those projects carry an `image` upload whose `i1024px` size live uses instead of `video.thumbnail`; mapping evidence in `recovered-remaining/og_image_field_map.json`).
 - Selected live CMS objects (`metadata-dev.json`, `contact-dev.json`, `projects-dev.json`) matched captured files in the audit.
 - The ZIP extraction test compared relative paths and sizes for 440 files; it was not a per-file hash proof for the entire archive.
 
@@ -50,6 +56,8 @@ These results establish a strong recovered/static baseline, not the rendering qu
 ### 3.1 Bootstrap, routes and browser capability
 
 **Implemented/observed:** local root serving, SPA fallback for application routes, explicit unsupported route, serving of selected static runtime assets, 404 for missing static/API paths, and 400 rejection of the tested traversal path. The automated suite covers `/`, `/studio/`, `/work/dream-portal`, `/unsupported`, selected assets and negative paths.
+
+**New (2026-10-09):** the server now reproduces the live SSR `<head>` for `/work/<slug>` deep links: title `{name} · Active Theory`, description, canonical/og:url/twitter:url, and og:image/twitter:image from `image.sizes.i1024px.url` when the project has an image upload (15 projects), else `video.thumbnail` (50 projects). All 67 sweep cases are byte-identical to live at HTTP level (bridge line normalized).
 
 **Open:** verify all discovered routes and deep links in a supported real browser, along with cold load, refresh, back/forward navigation, capability detection and failures.
 
@@ -63,13 +71,15 @@ Required evidence: supported hardware-accelerated WebGL 2 browser/device; initia
 
 **Implemented/partial:** captured CMS snapshots are available locally. CMS media URLs are rewritten to local hashed routes, and a CMS-derived allowlist controls the upstream public media proxy. The proxy streams on demand, caches completed full responses, supports HEAD and byte ranges, and avoids pre-downloading the entire media collection.
 
-**Open:** representative and broad playback tests for still images, MP4 and other video formats, thumbnails, range seeking, failed upstream requests, missing assets, cache corruption, long downloads, offline/reconnect and mobile autoplay/gesture restrictions. Hundreds of media URLs are not bundled as local files, so the project is not fully offline.
+**New (2026-10-09):** all 764 CMS-referenced public GCS media objects (1.28 GB) were recovered from the live bucket into `app/media-store/` (mirrored path layout, pinned by sha256 manifest) and the server serves them local-first, so CMS-driven media no longer requires network access. On-demand proxy remains as fallback for allowlisted URLs outside the captured set.
+
+**Open:** representative and broad playback tests for still images, MP4 and other video formats, thumbnails, range seeking, failed upstream requests, missing assets, cache corruption, long downloads, offline/reconnect and mobile autoplay/gesture restrictions. The store covers the captured CMS media set; any CMS content added upstream after capture would still fall back to the proxy.
 
 ### 3.4 Assistant
 
 **Implemented/approximation:** a local bridge maps the four observed request names (`createThread`, `createMessage`, `createRun`, `listMessage`) to a local deterministic catalog-matching adapter. The recorded smoke test proves the basic Dream Portal request flow and invalid-thread/wrong-method handling.
 
-**Known issue:** a separate probe sent prompts for all 65 captured projects and found one mismatch: the `E.C.H.O.` prompt expected slug `echo`, but returned an empty slug. This probe is separate from `npm run smoke`, so the 26/26 smoke result does not close this issue.
+**Known issue:** a separate probe sent prompts for all 65 captured projects and found one mismatch: the `E.C.H.O.` prompt expected slug `echo`, but returned an empty slug. This probe is separate from `npm run smoke`, so the 27/27 smoke result does not close this issue.
 
 **Not equivalent to the original:** private model, prompt, conversation storage and original response semantics are unavailable. The local adapter must be described as deterministic compatibility behavior, not a recovered original AI backend.
 
@@ -100,7 +110,8 @@ Phase 1 must not be marked complete until each item is either evidenced as passi
 - [ ] WebGL 2 scene starts on supported hardware-accelerated browser/device.
 - [ ] Current live site and local site have comparable desktop visual checkpoints with notes.
 - [ ] Mobile visual checkpoints and touch interactions are compared on a real supported device.
-- [ ] Root, all known deep links, browser history and project selection work end to end.
+- [x] Root and all 65 known `/work/<slug>` deep links return live-byte-identical documents at HTTP level (67/67 sweep incl. unknown slug + trailing slash); browser history/interaction still open.
+- [ ] Root, all known deep links, browser history and project selection work end to end in a supported browser.
 - [ ] Media variants, byte-range seeking, cache behavior and failure fallbacks are exercised broadly.
 - [ ] Assistant mapping edge cases are resolved/tested or logged as accepted differences.
 - [ ] Realtime protocol, WebRTC/fallback relaying, reconnection and failure paths are tested.

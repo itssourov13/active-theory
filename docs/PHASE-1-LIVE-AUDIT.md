@@ -2,6 +2,8 @@
 
 Audit date: 2026-10-09
 
+> **Update (late 2026-10-09):** after this audit, the full 764-object (1.28 GB) CMS media store was recovered from the live GCS bucket into `app/media-store/` and is now served local-first (on-demand proxy remains as fallback), and the server now reproduces the live SSR `<head>` for `/work/<slug>` deep links. Current suites: `npm run verify` PASS (386/386 manifest + 764/764 media store), `npm run smoke` PASS 27/27, live-vs-local parity 36/36, SSR deep-link sweep 67/67 byte-identical to live. The counts and statements below reflect the earlier audit snapshot; see `PHASE-1-PARITY-MATRIX.md` for the current state.
+
 ## Workspace and archive
 
 Active workspace:
@@ -95,8 +97,8 @@ The assistant endpoint was probed with HEAD/GET (404) and OPTIONS (204 with the 
 ## Remaining implementation gaps
 
 - `src/` contains only its README. The original V6 runtime is being preserved for fidelity; source extraction should only be considered where it demonstrably helps Phase 1 and does not replace recovered behavior.
-- `tests/` has no dedicated test modules yet, although `scripts/smoke-test.mjs` provides 26 reproducible integration checks on this branch.
-- Local CMS and allowlisted media proxy work, but the majority of project video media should be sampled for real browser loading and seek/range behavior.
+- `tests/` has no dedicated test modules yet, although `scripts/smoke-test.mjs` provides 27 reproducible integration checks on this branch (including the SSR deep-link title checks).
+- Local CMS and allowlisted media proxy work, and the full captured media set is now mirrored locally; the majority of project video media should still be sampled for real browser loading and seek/range behavior.
 - The deterministic assistant adapter matches the observed payload shapes and basic catalog navigation, but not private model behavior. Verify it against actual expected flows in a browser and label remaining differences.
 - The local WebSocket implementation covers a subset of the original protocol, including room discovery/creation, join/watch/leave, state updates, participant notifications, and selected `establish_rtc` / `ws_data` relays. The original client also uses `findAny`, `create`, `join`, `watch`, `leave`, `request_state`, `alive`, `establish_rtc`, `ws_data`, `update_user_data`, `pin`/`unpin`, and player notifications. Full event-by-event parity, room capacity/timeouts, host/watcher transitions, RTC negotiation, fallback behavior and reconnects are not established.
 - Audio/voice and microphone permissions, optional Vosk/TTS integrations, and geolocation denial/fallback flows need separate end-to-end checks.

@@ -34,7 +34,11 @@ The assembled baseline currently verifies:
 - 0 failed downloads
 - 0 declared-byte mismatches
 - core V6 forensic/live hashes retained
-- local verification command passes
+- full 764-object (1.28 GB) CMS media store mirrored locally and verified against a pinned sha256 manifest (`app/media-store/`, Git-ignored; manifest in `.artifacts/media-store-manifest.json`)
+- live-vs-local HTTP parity 36/36 (routes, runtime assets, CMS snapshots, media responses byte-identical after documented normalizations)
+- SSR `/work/<slug>` deep-link head reproduction verified 67/67 byte-identical against the live site (og:image rule: `image.sizes.i1024px.url` when present, else `video.thumbnail`)
+- local verification and smoke commands pass (verify: 386/386 + media store; smoke: 27/27)
+- remaining-asset recovery sweep complete: v6 site music/favicon integrated, 1,051 legacy v4/v5 files and the full 44-host experiments harvest (5,193/5,193 referenced files, 0 failures, 0 content diffs) recovered under `recovered-remaining/` (`docs/ASSET-RECONSTRUCTION.md`)
 
 The current headless environment does not expose a usable WebGL context, so visual GPU validation still belongs on a real hardware-accelerated browser/device.
 
