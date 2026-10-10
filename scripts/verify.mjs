@@ -15,6 +15,13 @@ const required = [
   'assets/js/modules.1780406240914.js',
   'assets/js/hydra/hydra-thread.js',
   'assets/js/lib/qrious.js',
+  'assets/fonts/NBArchitektStd-Regular.json',
+  'assets/fonts/NBArchitektStd-Light.json',
+  'assets/fonts/NBArchitektStd-Bold.json',
+  'assets/js/lib/_draco/draco_wasm_wrapper.js',
+  'assets/js/lib/_draco/draco_decoder.wasm',
+  'assets/js/lib/basis_transcoder.js',
+  'assets/js/lib/basis_transcoder.wasm',
   'assets/data/uil.1780406240914.json',
   'assets/geometry/home/jellyfish.json',
   'assets/geometry/logo/AT_logo.json',
@@ -27,12 +34,22 @@ const required = [
   'assets/meta/favicon-32x32.png',
   'assets/meta/favicon-16x16.png',
   'assets/meta/safari-pinned-tab.svg',
-  'sw.js'
+  'sw.js',
+  'favicon.ico'
 ];
 
 const expectedCore = {
   // SHA-256 pins checked directly against https://activetheory.net/ on 2026-10-09.
+  'assets/fonts/NBArchitektStd-Regular.json': '71b600a7d72e46851f329329e8b962b4692142d44e1ff4dae884da3ae6eb7387',
+  'assets/fonts/NBArchitektStd-Light.json': 'df1a1e38261981507dce2704e758bf4087604600e23124c7bb9281e485ed2edf',
+  'assets/fonts/NBArchitektStd-Bold.json': '8b046ce69553d9b23796c8d160817340c0d43781a0f0816cfb3c3e9cd40ece11',
+  'assets/js/lib/_draco/draco_wasm_wrapper.js': 'b93f6384147828f857456c84845f4dbceada5b7a8455991109c853e236a1f018',
+  'assets/js/lib/_draco/draco_decoder.wasm': '0103c8bff79532c2f1a496dd9ea0764ac692ed8585d9136596ef9f043873a61f',
+  'assets/js/lib/basis_transcoder.js': 'dee6fa695014e9c2f0370b6c1f052ebfaf7e11a55143be20b8a77ebc33e1c127',
+  'assets/js/lib/basis_transcoder.wasm': '5e456711b9a87288a13d8baf4a0312d1ed2edd2f8f99073b07013466215e7e18',
   'index.html': 'e026e78b8db8823da1d2256fd7b011aa016b971d2bbd64e72e98f440f46626d5',
+  // favicon.ico: fetched from https://activetheory.net/favicon.ico on 2026-10-09 (final recovery pass).
+  'favicon.ico': '7334190452fab7c7511db0972396c15682a2a98893ef3b9e78260584ddb8de8f',
   'unsupported.html': '6aae50dbeb1dbcb2620575a3f26142f9cc91d37e5f6216603d69d165351b6953',
   'assets/js/app.1780406240914.js': '085d3e6a46893f503262ccdaaad16f832367e709bae7ae14c369b629fdb1a5cf',
   'assets/data/uil.1780406240914.json': 'eb1553d8c1a9188646cd77fa550a89619cc1ad851f2dc242f0d7b9d1a50a00e7',
@@ -97,6 +114,26 @@ for (const env of ['production','staging','dev']) {
       errors.push(`unexpected CMS media count in ${file}: expected 161 records`);
     }
   }
+}
+
+const mediaStoreManifestPath = path.join(root, '.artifacts/media-store-manifest.json');
+const mediaStoreRoot = path.join(root, 'app/media-store');
+if (fs.existsSync(mediaStoreManifestPath)) {
+  const mediaStore = JSON.parse(fs.readFileSync(mediaStoreManifestPath, 'utf8'));
+  const mediaEntries = mediaStore.entries || [];
+  let mediaOk = 0;
+  for (const entry of mediaEntries) {
+    const file = path.join(mediaStoreRoot, entry.path);
+    if (!fs.existsSync(file)) { errors.push(`media store missing: ${entry.path}`); continue; }
+    const stat = fs.statSync(file);
+    if (stat.size !== entry.bytes) { errors.push(`media store size mismatch: ${entry.path} expected=${entry.bytes} actual=${stat.size}`); continue; }
+    const actual = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    if (actual !== entry.sha256) { errors.push(`media store hash mismatch: ${entry.path}`); continue; }
+    mediaOk++;
+  }
+  console.log(`media store verified: ${mediaOk}/${mediaEntries.length} objects (${(mediaStore.total_bytes / 1e9).toFixed(2)} GB), source: ${mediaStore.source || 'unknown'}`);
+} else {
+  errors.push('missing media store manifest: .artifacts/media-store-manifest.json');
 }
 
 if (fs.existsSync(reportPath)) {

@@ -20,11 +20,20 @@ const checks = [
   { path: '/', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
   { path: '/', status: 200, includes: '<script src="/phase1-local-bridge.js"></script>' },
   { path: '/studio/', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
-  { path: '/work/dream-portal', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
+  // /work/<known-slug> receives live-matching SSR meta: title = "{name} · Active Theory".
+  { path: '/work/dream-portal', status: 200, includes: '<title>Dream Portal · Active Theory</title>' },
+  { path: '/work/not-a-real-project', status: 200, includes: '<title>Active Theory · Creative Digital Experiences</title>' },
   { path: '/unsupported', status: 200, includes: 'Your browser is not supported' },
   { path: '/phase1-local-bridge.js', status: 200, includes: 'phase1Fetch' },
   { path: '/assets/js/app.1780406240914.js', status: 200, includes: 'function RNG' },
   { path: '/assets/js/hydra/hydra-thread.js', status: 200 },
+  { path: '/assets/fonts/NBArchitektStd-Regular.json', status: 200, contentType: 'application/json' },
+  { path: '/assets/fonts/NBArchitektStd-Light.json', status: 200, contentType: 'application/json' },
+  { path: '/assets/fonts/NBArchitektStd-Bold.json', status: 200, contentType: 'application/json' },
+  { path: '/assets/js/lib/_draco/draco_wasm_wrapper.js', status: 200, contentType: 'javascript' },
+  { path: '/assets/js/lib/_draco/draco_decoder.wasm', status: 200, contentType: 'application/wasm' },
+  { path: '/assets/js/lib/basis_transcoder.js', status: 200, contentType: 'javascript' },
+  { path: '/assets/js/lib/basis_transcoder.wasm', status: 200, contentType: 'application/wasm' },
   { path: '/assets/data/uil.1780406240914.json', status: 200 },
   { path: '/assets/shaders/compiled.vs', status: 200 },
   { path: '/assets/not-found-phase1-smoke.json', status: 404 },
@@ -40,6 +49,7 @@ for (const item of checks) {
     });
     const body = await response.text();
     assert.equal(response.status, item.status, 'unexpected HTTP status');
+    if (item.contentType) assert.ok((response.headers.get('content-type') || '').includes(item.contentType), `content-type should include ${item.contentType}`);
     if (item.includes) assert.ok(body.includes(item.includes), `body should include ${JSON.stringify(item.includes)}`);
   });
 }
